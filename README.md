@@ -1,25 +1,20 @@
-import java.util.Scanner;
+# Palindrome Checker - UC12 (Strategy Pattern)
 
-public class PalindromeApp {
-public static void main(String[] args) {
-Scanner scanner = new Scanner(System.in);
+## Overview
+UC12 implements the **Strategy Design Pattern**, allowing the application to switch between different data structure implementations (Stack vs. Deque) at runtime without changing the core application logic.
 
-        // Instantiate the object (OOP approach)
-        PalindromeService service = new PalindromeService();
+## Key Concepts
+* **Interface**: Defines a common contract (`isValid`) that all algorithms must follow.
+* **Polymorphism**: The `PalindromeContext` treats all strategies as the same type, even though they behave differently internally.
+* **Loose Coupling**: The main application doesn't need to know *how* the check happens; it just knows it *can* happen.
 
-        System.out.println("--- UC11: Object-Oriented Palindrome App ---");
-        System.out.print("Enter your text: ");
-        String userInput = scanner.nextLine();
+## Pattern Structure
+1.  **Strategy Interface**: The "Contract."
+2.  **Concrete Strategies**: The specific algorithms (Stack-based, Deque-based, etc.).
+3.  **Context**: The class that uses the strategy and allows it to be swapped via `setStrategy()`.
 
-        // Use the service method
-        boolean result = service.checkPalindrome(userInput);
-
-        if (result) {
-            System.out.println("Success: This is a palindrome!");
-        } else {
-            System.out.println("Result: Not a palindrome.");
-        }
-
-        scanner.close();
-    }
-}
+## How to Run in IntelliJ
+1.  Create the four files: `PalindromeStrategy`, `StackStrategy`, `DequeStrategy`, and `PalindromeContext`.
+2.  Ensure they are in the same package.
+3.  Run `PalindromeContext`.
+4.  Observe how you can choose your algorithm via the console menu.
