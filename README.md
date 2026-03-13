@@ -1,25 +1,22 @@
-# UC5: Stack-Based Palindrome Checker
+# Palindrome Checker - UC6 (Stack & Queue)
 
-## Description
-This module implements a palindrome validation logic using a **Stack** data structure. By leveraging the Last-In, First-Out (LIFO) property, we can easily compare a string against its reversed version.
+## Overview
+This module implements a palindrome validation logic by utilizing the contrasting behaviors of **Stacks (LIFO)** and **Queues (FIFO)**.
 
-
-
-## How it Works
-1.  **Normalization**: The input string is cleaned of special characters and converted to lowercase.
-2.  **Push Phase**: Each character of the string is pushed onto the stack.
-3.  **Pop & Compare Phase**: As we iterate through the original string again, we `pop()` characters from the stack. Since the stack pops in reverse order, any mismatch indicates the string is not a palindrome.
+## Logical Flow
+1.  **Normalization**: The input string is stripped of special characters and converted to lowercase.
+2.  **Storage**:
+    * Each character is added to a `Queue` (maintaining original order).
+    * Each character is added to a `Stack` (reversing the order).
+3.  **Comparison**: The app iterates through both structures. Since `queue.poll()` returns the front and `stack.pop()` returns the back, a palindrome is confirmed if every pair matches.
 
 ## Key Concepts
-* **Stack**: A linear data structure following LIFO.
-* **Push**: Adding the character to the top.
-* **Pop**: Removing the top character (the last one added).
+* **Queue**: First-In-First-Out (FIFO) - Used for forward traversal.
+* **Stack**: Last-In-First-Out (LIFO) - Used for backward traversal.
 * **Time Complexity**: $O(n)$ where $n$ is the length of the string.
-* **Space Complexity**: $O(n)$ to store the characters in the stack.
+* **Space Complexity**: $O(n)$ to store characters in both data structures.
 
-## Setup Instructions for IntelliJ
-1.  **Open IntelliJ IDEA** and your Palindrome project.
-2.  **Create a new class**: Right-click `src` > `New` > `Java Class`.
-3.  **Name the class**: `PalindromeStack`.
-4.  **Paste the code**: Copy the provided Java code into the file.
-5.  **Run**: Right-click inside the editor and select `Run 'PalindromeStack.main()'`.
+## How to Run in IntelliJ
+1. Right-click `PalindromeCheckerUC6.java`.
+2. Select **Run 'PalindromeCheckerUC6.main()'**.
+3. Enter your text in the console terminal at the bottom.
