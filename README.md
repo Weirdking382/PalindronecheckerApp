@@ -1,36 +1,25 @@
-## UC4: Character Array Based Palindrome Check
+# UC5: Stack-Based Palindrome Checker
 
-### Goal
+## Description
+This module implements a palindrome validation logic using a **Stack** data structure. By leveraging the Last-In, First-Out (LIFO) property, we can easily compare a string against its reversed version.
 
-Check whether a string is a palindrome by converting it into a character array and comparing characters using the two-pointer technique.
 
-### Flow
 
-1. Program starts.
-2. The original string is stored in a variable.
-3. Convert the string into a `char[]` array.
-4. Use two pointers:
+## How it Works
+1.  **Normalization**: The input string is cleaned of special characters and converted to lowercase.
+2.  **Push Phase**: Each character of the string is pushed onto the stack.
+3.  **Pop & Compare Phase**: As we iterate through the original string again, we `pop()` characters from the stack. Since the stack pops in reverse order, any mismatch indicates the string is not a palindrome.
 
-    * One starting at the beginning
-    * One starting at the end
-5. Compare characters at start and end pointers.
-6. If all corresponding characters match → string is a palindrome.
-7. Display the result on the console.
-8. Program exits.
+## Key Concepts
+* **Stack**: A linear data structure following LIFO.
+* **Push**: Adding the character to the top.
+* **Pop**: Removing the top character (the last one added).
+* **Time Complexity**: $O(n)$ where $n$ is the length of the string.
+* **Space Complexity**: $O(n)$ to store the characters in the stack.
 
-### Key Concepts used in UC4
-
-**Character Array (char[])**
-A primitive array used to store individual characters of a string for index-based access.
-
-**Array Indexing**
-Access elements using index positions starting from 0.
-
-**Two-Pointer Technique**
-One pointer starts from the beginning, the other from the end, reducing unnecessary comparisons.
-
-**Time Complexity Awareness**
-Demonstrates an efficient comparison approach without creating extra string objects.
-
-**Data Structure: char[]**
-A primitive array storing characters of the string for efficient access.
+## Setup Instructions for IntelliJ
+1.  **Open IntelliJ IDEA** and your Palindrome project.
+2.  **Create a new class**: Right-click `src` > `New` > `Java Class`.
+3.  **Name the class**: `PalindromeStack`.
+4.  **Paste the code**: Copy the provided Java code into the file.
+5.  **Run**: Right-click inside the editor and select `Run 'PalindromeStack.main()'`.
