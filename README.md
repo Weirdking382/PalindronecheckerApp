@@ -1,20 +1,19 @@
-# Palindrome Checker - UC12 (Strategy Pattern)
+# Palindrome Checker - UC13 (Performance Benchmarking)
 
 ## Overview
-UC12 implements the **Strategy Design Pattern**, allowing the application to switch between different data structure implementations (Stack vs. Deque) at runtime without changing the core application logic.
+UC13 focuses on quantitative analysis. While all algorithms achieve the same result ($O(n)$ time complexity), the **constant factors** (memory allocation, object creation, and method overhead) vary significantly between approaches.
 
 ## Key Concepts
-* **Interface**: Defines a common contract (`isValid`) that all algorithms must follow.
-* **Polymorphism**: The `PalindromeContext` treats all strategies as the same type, even though they behave differently internally.
-* **Loose Coupling**: The main application doesn't need to know *how* the check happens; it just knows it *can* happen.
+* **System.nanoTime()**: Provides the most precise time available from the system timer (1 nanosecond = $10^{-9}$ seconds).
+* **Overhead**: Comparing how manual array manipulation (Two-Pointer) is faster than using high-level objects like `Stack` or `LinkedList`.
+* **Benchmarking**: The process of running a computer program to assess the relative performance of an object.
 
-## Pattern Structure
-1.  **Strategy Interface**: The "Contract."
-2.  **Concrete Strategies**: The specific algorithms (Stack-based, Deque-based, etc.).
-3.  **Context**: The class that uses the strategy and allows it to be swapped via `setStrategy()`.
+## Expected Findings
+1.  **Two-Pointer**: Usually the fastest because it avoids object creation and operates directly on the primitive `char` array.
+2.  **Deque**: Often faster than the Stack/Queue approach because `ArrayDeque` is more efficient than `LinkedList`.
+3.  **Stack/Queue**: Usually the slowest due to the creation of two separate collections and double the insertions.
 
-## How to Run in IntelliJ
-1.  Create the four files: `PalindromeStrategy`, `StackStrategy`, `DequeStrategy`, and `PalindromeContext`.
-2.  Ensure they are in the same package.
-3.  Run `PalindromeContext`.
-4.  Observe how you can choose your algorithm via the console menu.
+## How to Setup in IntelliJ
+1. Create `PalindromePerformanceUC13.java` in your `src` folder.
+2. Run the file.
+3. For best results, use a very long string (copy/paste a paragraph) to see the performance gap clearly.
