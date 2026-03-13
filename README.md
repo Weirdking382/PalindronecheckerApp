@@ -1,22 +1,24 @@
-# Palindrome Checker - UC6 (Stack & Queue)
+# Palindrome Checker - UC7 (Deque Optimized)
 
 ## Overview
-This module implements a palindrome validation logic by utilizing the contrasting behaviors of **Stacks (LIFO)** and **Queues (FIFO)**.
+This implementation uses a **Deque (Double-Ended Queue)** to optimize the palindrome checking process. Unlike UC6, which required two separate data structures, UC7 performs the check using a single structure by accessing both ends simultaneously.
 
 ## Logical Flow
-1.  **Normalization**: The input string is stripped of special characters and converted to lowercase.
-2.  **Storage**:
-    * Each character is added to a `Queue` (maintaining original order).
-    * Each character is added to a `Stack` (reversing the order).
-3.  **Comparison**: The app iterates through both structures. Since `queue.poll()` returns the front and `stack.pop()` returns the back, a palindrome is confirmed if every pair matches.
+1.  **Input Cleaning**: Special characters are removed and the string is lowercased.
+2.  **Character Insertion**: All characters are added to the Deque in sequence.
+3.  **Front-Rear Comparison**:
+    * The first element (`removeFirst()`) and the last element (`removeLast()`) are removed and compared.
+    * This continues until the Deque has 0 elements (even length string) or 1 element (odd length string).
+    * If any pair fails to match, the string is not a palindrome.
 
 ## Key Concepts
-* **Queue**: First-In-First-Out (FIFO) - Used for forward traversal.
-* **Stack**: Last-In-First-Out (LIFO) - Used for backward traversal.
-* **Time Complexity**: $O(n)$ where $n$ is the length of the string.
-* **Space Complexity**: $O(n)$ to store characters in both data structures.
+* **Deque**: A linear collection that supports element insertion and removal at both endpoints.
+* **Efficiency**: Reduces the memory overhead of maintaining two separate collections (Stack and Queue).
+* **Time Complexity**: $O(n)$
+* **Space Complexity**: $O(n)$
 
-## How to Run in IntelliJ
-1. Right-click `PalindromeCheckerUC6.java`.
-2. Select **Run 'PalindromeCheckerUC6.main()'**.
-3. Enter your text in the console terminal at the bottom.
+## Setup Instructions for IntelliJ
+1. Create a new Java class named `PalindromeCheckerUC7`.
+2. Copy and paste the code into the class.
+3. Right-click the file and select **Run 'PalindromeCheckerUC7.main()'**.
+4. Test with words like "radar", "level", or phrases like "A man, a plan, a canal: Panama".
