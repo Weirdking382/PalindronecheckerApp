@@ -1,24 +1,25 @@
-# Palindrome Checker - UC7 (Deque Optimized)
+# Palindrome Checker - UC8 (Singly Linked List)
 
 ## Overview
-This implementation uses a **Deque (Double-Ended Queue)** to optimize the palindrome checking process. Unlike UC6, which required two separate data structures, UC7 performs the check using a single structure by accessing both ends simultaneously.
+This use case demonstrates a deep dive into manual memory management and pointer manipulation. By using a **Singly Linked List**, we validate a palindrome with optimal space complexity.
+
+## Key Techniques
+* **Fast and Slow Pointers**: A technique where one pointer moves twice as fast as the other to find the middle of the list in one pass.
+* **In-Place Reversal**: Reversing the second half of the linked list without creating a new list, keeping space complexity at $O(1)$ (excluding the initial list creation).
 
 ## Logical Flow
-1.  **Input Cleaning**: Special characters are removed and the string is lowercased.
-2.  **Character Insertion**: All characters are added to the Deque in sequence.
-3.  **Front-Rear Comparison**:
-    * The first element (`removeFirst()`) and the last element (`removeLast()`) are removed and compared.
-    * This continues until the Deque has 0 elements (even length string) or 1 element (odd length string).
-    * If any pair fails to match, the string is not a palindrome.
+1.  **Normalization**: Strip non-alphanumeric characters.
+2.  **List Creation**: Convert the string into a custom `Node` based structure.
+3.  **Find Midpoint**: Use `slow` and `fast` pointers to locate the center.
+4.  **Reverse**: Flip the `next` pointers of the second half.
+5.  **Validation**: Compare the data values of the first half and the reversed second half.
 
-## Key Concepts
-* **Deque**: A linear collection that supports element insertion and removal at both endpoints.
-* **Efficiency**: Reduces the memory overhead of maintaining two separate collections (Stack and Queue).
-* **Time Complexity**: $O(n)$
-* **Space Complexity**: $O(n)$
+## Data Structure Details
+* **Structure**: Singly Linked List (Data + Next Reference).
+* **Time Complexity**: $O(n)$ - one pass for creation, one for middle finding, one for reversal, and one for comparison.
+* **Space Complexity**: $O(1)$ additional space beyond the initial list storage.
 
-## Setup Instructions for IntelliJ
-1. Create a new Java class named `PalindromeCheckerUC7`.
-2. Copy and paste the code into the class.
-3. Right-click the file and select **Run 'PalindromeCheckerUC7.main()'**.
-4. Test with words like "radar", "level", or phrases like "A man, a plan, a canal: Panama".
+## How to Run in IntelliJ
+1. Create a new class `PalindromeCheckerUC8.java`.
+2. Paste the provided source code.
+3. Click the green **Play** button next to the `main` method.
