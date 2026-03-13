@@ -1,32 +1,36 @@
-## UC3: Palindrome Check Using String Reverse
+## UC4: Character Array Based Palindrome Check
 
 ### Goal
 
-Check whether a string is a palindrome by reversing it and comparing it with the original string.
+Check whether a string is a palindrome by converting it into a character array and comparing characters using the two-pointer technique.
 
 ### Flow
 
 1. Program starts.
 2. The original string is stored in a variable.
-3. The program reverses the string using a loop.
-4. The reversed string is compared with the original string.
-5. If both strings are equal → it is a palindrome.
-6. The result is displayed on the console.
-7. Program exits.
+3. Convert the string into a `char[]` array.
+4. Use two pointers:
 
-### Key Concepts used in UC3
+    * One starting at the beginning
+    * One starting at the end
+5. Compare characters at start and end pointers.
+6. If all corresponding characters match → string is a palindrome.
+7. Display the result on the console.
+8. Program exits.
 
-**Loop (for loop)**
-Used to iterate through the characters of the string in reverse order.
+### Key Concepts used in UC4
 
-**String Immutability**
-In Java, `String` objects are immutable. This means once a string is created, its value cannot be changed. Any modification creates a new String object.
+**Character Array (char[])**
+A primitive array used to store individual characters of a string for index-based access.
 
-**String Concatenation (+)**
-Used to build the reversed string character by character.
+**Array Indexing**
+Access elements using index positions starting from 0.
 
-**equals() Method**
-Used to compare the actual content of two `String` objects rather than their memory references.
+**Two-Pointer Technique**
+One pointer starts from the beginning, the other from the end, reducing unnecessary comparisons.
 
-**Data Structure: String**
-A `String` is a sequence of characters used to store and manipulate text data in Java.
+**Time Complexity Awareness**
+Demonstrates an efficient comparison approach without creating extra string objects.
+
+**Data Structure: char[]**
+A primitive array storing characters of the string for efficient access.
